@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utl=8">
+    <title>TimeTable</title>
+</head>
+<script>
+    var i = 2 ;
+        function addForm() {
+    var 
+    br = document.createElement("br")
+    input_data = document.createElement('input');
+    input_data.name="artName" + i ;
+    input_data.type="text" ;
+    input_data.id="art_form" + i ;
+    input_data.placeholder=i + "番手" ;
+    var parent = document.getElementById('form_area') ;
+    parent.appendChild(input_data) ;
+    parent.appendChild(br) ;
+    i++ ;
+}
+    </script>
+<body>
+    <h1>タイムテーブル作成</h1>
+    <form action="/save/">
+        <p>イベント日程</p><br><input name="date" type="date">
+        <p>イベント名</p><br><input name="eventTitle" type="text">
+        <p>前売り料金(D-別) : <input name="beforePrice" type="text">
+        当日料金(D-別) : <input name="todayPrice" type="text"></p>
+        <p>OPEN : <input name="openTime" type="time">
+           START : <input name="startTime" type="time"><br>
+        </p>
+        <p>出演</p>
+        <div id="form_area">
+            <input name="artName1" type="text" id="art_form1" placeholder="1番手"><br>
+        </div>
+        <input type="button" value="+" onclick="addForm()">
+
+
+
+        <!--ステージ時間 : 転換時間 :-->
+
+        <p>ステージ時間 : <input name="stageTime" type="number" placeholder="半角数字" min="1"> 転換時間 : <input name="interTime" type="number" placeholder="半角数字" min="1">
+
+        <br><input type="submit">
+
+    </form>
+</body>
+</html>
